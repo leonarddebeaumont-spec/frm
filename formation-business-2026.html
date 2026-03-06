@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formation Business 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f0e8;
+    --gold: #c8a84b;
+    --orange: #e85d26;
+    --green: #2a7a4b;
+    --muted: #7a7265;
+    --card-bg: #141410;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 8vw;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,168,75,0.12) 0%, transparent 70%);
+    animation: pulse 6s ease-in-out infinite;
+  }
+
+  .hero::after {
+    content: '2026';
+    position: absolute;
+    bottom: -40px; right: 6vw;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(120px, 20vw, 280px);
+    color: rgba(200,168,75,0.06);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+  }
+
+  .tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(200,168,75,0.3);
+    display: inline-block;
+    padding: 6px 14px;
+    margin-bottom: 30px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 9vw, 130px);
+    line-height: 0.9;
+    letter-spacing: 1px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  h1 span {
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-sub {
+    max-width: 560px;
+    margin-top: 28px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.65);
+    font-weight: 300;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 56px;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .stat-item { border-left: 2px solid var(--gold); padding-left: 16px; }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--gold); }
+  .stat-label { font-size: 12px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SECTION */
+  section {
+    padding: 80px 8vw;
+  }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1;
+    margin-bottom: 48px;
+  }
+
+  /* MODULES GRID */
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px;
+    background: rgba(200,168,75,0.08);
+    border: 1px solid rgba(200,168,75,0.12);
+  }
+
+  .module-card {
+    background: var(--card-bg);
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s ease;
+    cursor: default;
+  }
+
+  .module-card:hover {
+    background: #1c1c16;
+  }
+
+  .module-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    height: 2px; width: 0;
+    background: var(--gold);
+    transition: width 0.4s ease;
+  }
+
+  .module-card:hover::before { width: 100%; }
+
+  .module-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    opacity: 0.5;
+    margin-bottom: 14px;
+  }
+
+  .module-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .module-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+  }
+
+  .module-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(245,240,232,0.55);
+    font-weight: 300;
+  }
+
+  .module-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 18px;
+  }
+
+  .module-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border: 1px solid rgba(200,168,75,0.2);
+    color: rgba(200,168,75,0.6);
+  }
+
+  /* PHILOSOPHY */
+  .philosophy {
+    background: #0e0e09;
+    border-top: 1px solid rgba(200,168,75,0.1);
+    border-bottom: 1px solid rgba(200,168,75,0.1);
+  }
+
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .philosophy-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-stats { flex-wrap: wrap; gap: 28px; }
+  }
+
+  .philosophy-quote {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 4vw, 54px);
+    line-height: 1.1;
+    color: var(--white);
+  }
+
+  .philosophy-quote em {
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  .pillars-list { list-style: none; }
+
+  .pillar-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(245,240,232,0.07);
+  }
+
+  .pillar-item:first-child { border-top: 1px solid rgba(245,240,232,0.07); }
+
+  .pillar-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  .pillar-text strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .pillar-text span {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+    border-left: 1px solid rgba(200,168,75,0.2);
+    margin-top: 16px;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -38px; top: 6px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--black);
+    border: 2px solid var(--gold);
+  }
+
+  .timeline-period {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .timeline-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+
+  .timeline-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* TOOLS */
+  .tools-section { background: var(--card-bg); }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1px;
+    background: rgba(200,168,75,0.08);
+    border: 1px solid rgba(200,168,75,0.1);
+  }
+
+  .tool-card {
+    background: var(--black);
+    padding: 24px 20px;
+    text-align: center;
+    transition: background 0.2s;
+  }
+
+  .tool-card:hover { background: #161612; }
+
+  .tool-emoji { font-size: 24px; display: block; margin-bottom: 8px; }
+
+  .tool-name {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+
+  .tool-cat {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  /* MINDSET */
+  .mindset-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .mindset-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(200,168,75,0.1);
+    padding: 28px 24px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .mindset-card:hover {
+    border-color: rgba(200,168,75,0.4);
+    transform: translateY(-4px);
+  }
+
+  .mindset-icon { font-size: 22px; margin-bottom: 12px; display: block; }
+  .mindset-title { font-family: 'Bebas Neue', sans-serif; font-size: 20px; margin-bottom: 8px; }
+  .mindset-text { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* FOOTER */
+  footer {
+    padding: 48px 8vw;
+    border-top: 1px solid rgba(200,168,75,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+  }
+
+  .footer-brand span { color: var(--gold); }
+
+  .footer-note {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* DIVIDER */
+  .gold-divider {
+    width: 48px; height: 2px;
+    background: var(--gold);
+    margin-bottom: 32px;
+  }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: rgba(200,168,75,0.06);
+    border: 1px solid rgba(200,168,75,0.2);
+    border-left: 3px solid var(--gold);
+    padding: 20px 24px;
+    margin-top: 32px;
+    font-size: 14px;
+    color: rgba(245,240,232,0.8);
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="tag">Formation Exclusive · 2026</span>
+  <h1>Deviens<span>Entrepreneur</span></h1>
+  <p class="hero-sub">Le programme complet conçu pour les 18–30 ans qui veulent bâtir un business solide dans le monde post-IA — sans perdre 4 ans sur les bancs d'une école.</p>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Modules</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">12</div>
+      <div class="stat-label">Mois</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">0€</div>
+      <div class="stat-label">Diplôme requis</div>
+    </div>
+  </div>
+</div>
+
+<!-- PHILOSOPHIE -->
+<section class="philosophy">
+  <div class="philosophy-grid">
+    <div>
+      <div class="section-label">La philosophie</div>
+      <div class="philosophy-quote">
+        Les écoles t'apprennent à <em>travailler pour</em> quelqu'un.<br>
+        Cette formation t'apprend à <em>construire pour</em> toi.
+      </div>
+      <div class="highlight-box">
+        En 2026, les outils IA ont effacé la barrière technique. Ce qui compte désormais : la pensée stratégique, l'exécution rapide, et la capacité à créer de la valeur réelle. Pas un CV.
+      </div>
+    </div>
+    <div>
+      <ul class="pillars-list">
+        <li class="pillar-item">
+          <div class="pillar-dot"></div>
+          <div class="pillar-text">
+            <strong>Learn by doing</strong>
+            <span>Chaque module est axé sur du concret : tu crées, tu vends, tu analyses. Pas de théorie pour la théorie.</span>
+          </div>
+        </li>
+        <li class="pillar-item">
+          <div class="pillar-dot"></div>
+          <div class="pillar-text">
+            <strong>Compétences transversales</strong>
+            <span>Marketing, vente, finance, copywriting, IA — les pilliers qui fonctionnent dans tout type de business.</span>
+          </div>
+        </li>
+        <li class="pillar-item">
+          <div class="pillar-dot"></div>
+          <div class="pillar-text">
+            <strong>Réseau avant tout</strong>
+            <span>S'entourer de gens qui construisent vaut 10x un diplôme. La communauté est intégrée au programme.</span>
+          </div>
+        </li>
+        <li class="pillar-item">
+          <div class="pillar-dot"></div>
+          <div class="pillar-text">
+            <strong>Revenus dès le mois 3</strong>
+            <span>L'objectif n'est pas de finir la formation — c'est de générer tes premiers euros le plus vite possible.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section>
+  <div class="section-label">Le programme</div>
+  <div class="section-title">6 Modules · 12 Mois</div>
+  <div class="modules-grid">
+
+    <div class="module-card">
+      <div class="module-num">01 / Mois 1–2</div>
+      <span class="module-icon">🧠</span>
+      <div class="module-title">Mindset & Fondations</div>
+      <div class="module-desc">Déconstruire les croyances limitantes autour de l'argent et du risque. Comprendre comment fonctionne la valeur, pourquoi les gens paient, et comment identifier un problème rentable.</div>
+      <div class="module-tags">
+        <span class="module-tag">Psychology</span>
+        <span class="module-tag">Value Creation</span>
+        <span class="module-tag">Niche Research</span>
+      </div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">02 / Mois 2–3</div>
+      <span class="module-icon">🎯</span>
+      <div class="module-title">Offre & Positionnement</div>
+      <div class="module-desc">Créer une offre que les gens veulent acheter. Travailler son positionnement différenciant, définir sa cible précisément, et savoir pitcher en 30 secondes ce qu'on fait.</div>
+      <div class="module-tags">
+        <span class="module-tag">Offer Design</span>
+        <span class="module-tag">Positioning</span>
+        <span class="module-tag">ICP</span>
+      </div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">03 / Mois 3–5</div>
+      <span class="module-icon">📣</span>
+      <div class="module-title">Acquisition & Marketing</div>
+      <div class="module-desc">Maîtriser un canal d'acquisition (LinkedIn, TikTok, cold email, SEO). Comprendre les bases du copywriting. Lancer ses premières campagnes et obtenir ses premiers clients.</div>
+      <div class="module-tags">
+        <span class="module-tag">Copywriting</span>
+        <span class="module-tag">Content</span>
+        <span class="module-tag">Cold Outreach</span>
+        <span class="module-tag">SEO</span>
+      </div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">04 / Mois 5–7</div>
+      <span class="module-icon">💰</span>
+      <div class="module-title">Vente & Closing</div>
+      <div class="module-desc">Apprendre à vendre sans paraître désespéré. Maîtriser les calls de vente, la gestion des objections, et construire un pipeline simple. Le closing est le skill le mieux payé au monde.</div>
+      <div class="module-tags">
+        <span class="module-tag">Sales Calls</span>
+        <span class="module-tag">Objections</span>
+        <span class="module-tag">Pipeline CRM</span>
+      </div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">05 / Mois 7–10</div>
+      <span class="module-icon">⚙️</span>
+      <div class="module-title">Systèmes & Automatisation IA</div>
+      <div class="module-desc">Construire des systèmes qui tournent sans toi. Automatisation avec des outils no-code et IA. Déléguer intelligemment. Passer de freelance à CEO de sa propre machine.</div>
+      <div class="module-tags">
+        <span class="module-tag">Automation</span>
+        <span class="module-tag">No-Code</span>
+        <span class="module-tag">AI Tools</span>
+        <span class="module-tag">Delegation</span>
+      </div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">06 / Mois 10–12</div>
+      <span class="module-icon">📈</span>
+      <div class="module-title">Scale & Finance</div>
+      <div class="module-desc">Comprendre ses chiffres, ses marges, son cashflow. Lever ou bootstrapper intelligemment. Passer les 10k€/mois. Préparer la prochaine étape : scale ou diversification.</div>
+      <div class="module-tags">
+        <span class="module-tag">P&L</span>
+        <span class="module-tag">Cashflow</span>
+        <span class="module-tag">Bootstrapping</span>
+        <span class="module-tag">Scaling</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section style="background: #0c0c08; border-top: 1px solid rgba(200,168,75,0.08);">
+  <div class="section-label">Le parcours</div>
+  <div class="section-title">Ta progression mois par mois</div>
+  <div style="max-width: 580px;">
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-period">Mois 1–2</div>
+        <div class="timeline-title">Tu comprends le jeu</div>
+        <div class="timeline-desc">Tu sais ce que tu veux construire, tu as identifié un problème réel sur un marché, et tu as clarifié ton offre.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-period">Mois 3</div>
+        <div class="timeline-title">Premiers euros</div>
+        <div class="timeline-desc">Tu as tes 3 premiers clients ou tes premières ventes. Pas parfait, mais réel. C'est la validation qui compte.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-period">Mois 6</div>
+        <div class="timeline-title">2 000–5 000€ / mois</div>
+        <div class="timeline-desc">Tu as un canal d'acquisition qui tourne, tu closes régulièrement, et tu ne dépends plus d'un seul client.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-period">Mois 9</div>
+        <div class="timeline-title">Le business tourne sans toi 8h/jour</div>
+        <div class="timeline-desc">Tu as des systèmes, peut-être une première embauche ou des freelances. Tu travailles sur le business, pas dans le business.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-period">Mois 12</div>
+        <div class="timeline-title">10 000€/mois — Le cap symbolique</div>
+        <div class="timeline-desc">Tu as une entreprise. Pas un side project, pas un freelance — un business avec de la marge, des process, et un avenir.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTILS -->
+<section class="tools-section">
+  <div class="section-label">La stack 2026</div>
+  <div class="section-title">Les outils incontournables</div>
+  <div class="tools-grid">
+    <div class="tool-card"><span class="tool-emoji">🤖</span><div class="tool-name">Claude / GPT</div><div class="tool-cat">IA Générative</div></div>
+    <div class="tool-card"><span class="tool-emoji">⚡</span><div class="tool-name">Make.com</div><div class="tool-cat">Automatisation</div></div>
+    <div class="tool-card"><span class="tool-emoji">📋</span><div class="tool-name">Notion</div><div class="tool-cat">Organisation</div></div>
+    <div class="tool-card"><span class="tool-emoji">💌</span><div class="tool-name">Instantly</div><div class="tool-cat">Cold Email</div></div>
+    <div class="tool-card"><span class="tool-emoji">🎨</span><div class="tool-name">Figma</div><div class="tool-cat">Design</div></div>
+    <div class="tool-card"><span class="tool-emoji">🛒</span><div class="tool-name">Shopify / Stripe</div><div class="tool-cat">Vente en ligne</div></div>
+    <div class="tool-card"><span class="tool-emoji">📊</span><div class="tool-name">Analytics</div><div class="tool-cat">Data & KPI</div></div>
+    <div class="tool-card"><span class="tool-emoji">🔗</span><div class="tool-name">LinkedIn</div><div class="tool-cat">B2B Acquisition</div></div>
+    <div class="tool-card"><span class="tool-emoji">📱</span><div class="tool-name">TikTok / IG</div><div class="tool-cat">Personal Brand</div></div>
+    <div class="tool-card"><span class="tool-emoji">🧾</span><div class="tool-name">Pennylane</div><div class="tool-cat">Compta</div></div>
+    <div class="tool-card"><span class="tool-emoji">🗣️</span><div class="tool-name">Calendly</div><div class="tool-cat">Sales Calls</div></div>
+    <div class="tool-card"><span class="tool-emoji">🌐</span><div class="tool-name">Framer / Webflow</div><div class="tool-cat">Site web</div></div>
+  </div>
+</section>
+
+<!-- MINDSET -->
+<section>
+  <div class="section-label">Les règles du jeu</div>
+  <div class="section-title">Ce qu'on ne t'apprend pas à l'école</div>
+  <div class="mindset-cards">
+    <div class="mindset-card">
+      <span class="mindset-icon">⚡</span>
+      <div class="mindset-title">La vitesse bat la perfection</div>
+      <div class="mindset-text">Lancer imparfait en 2 semaines vaut mieux que parfait en 6 mois. Le marché te donnera le vrai feedback, pas ta tête.</div>
+    </div>
+    <div class="mindset-card">
+      <span class="mindset-icon">🎯</span>
+      <div class="mindset-title">Niche down ou mourir</div>
+      <div class="mindset-text">Plus ta cible est précise, plus tu fermes des deals facilement. "Je travaille pour tout le monde" = tu travailles pour personne.</div>
+    </div>
+    <div class="mindset-card">
+      <span class="mindset-icon">💬</span>
+      <div class="mindset-title">Vendre = écouter</div>
+      <div class="mindset-text">Les meilleurs vendeurs parlent 30% du temps. L'enjeu : comprendre le problème du client mieux qu'il ne le comprend lui-même.</div>
+    </div>
+    <div class="mindset-card">
+      <span class="mindset-icon">🔁</span>
+      <div class="mindset-title">Les systèmes libèrent</div>
+      <div class="mindset-text">Si ton business dépend de ta présence constante, tu as créé un emploi, pas un business. Documente, automatise, délègue.</div>
+    </div>
+    <div class="mindset-card">
+      <span class="mindset-icon">📚</span>
+      <div class="mindset-title">Apprendre à apprendre</div>
+      <div class="mindset-text">En 2026, tout change tous les 6 mois. La compétence #1 est d'absorber vite, tester vite, pivoter vite.</div>
+    </div>
+    <div class="mindset-card">
+      <span class="mindset-icon">🌐</span>
+      <div class="mindset-title">Ton réseau est ton capital</div>
+      <div class="mindset-text">Les meilleures opportunités ne sont pas sur Google. Elles viennent de gens qui te connaissent, te font confiance, et pensent à toi.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOMMERCE SECTION HERO -->
+<section style="background: linear-gradient(135deg, #0a0f0a 0%, #0a0a0a 100%); border-top: 2px solid var(--green); padding-top: 100px; padding-bottom: 100px;">
+  <div class="section-label" style="color: #4ade80;">Plan Spécial</div>
+  <h2 style="font-family:'Bebas Neue',sans-serif; font-size: clamp(48px,8vw,110px); line-height:0.9; margin-bottom: 20px;">
+    Réussir en<br><span style="color:#4ade80;">E-Commerce</span>
+  </h2>
+  <p style="max-width:600px; font-size:17px; line-height:1.7; color:rgba(245,240,232,0.6); font-weight:300; margin-bottom:48px;">
+    Un plan d'action précis, semaine par semaine, pour lancer une boutique rentable de zéro — du choix du produit jusqu'aux premières commandes automatisées.
+  </p>
+  <div style="display:flex; gap:36px; flex-wrap:wrap;">
+    <div class="stat-item" style="border-left-color:#4ade80;">
+      <div class="stat-num" style="color:#4ade80;">5</div>
+      <div class="stat-label">Phases</div>
+    </div>
+    <div class="stat-item" style="border-left-color:#4ade80;">
+      <div class="stat-num" style="color:#4ade80;">90</div>
+      <div class="stat-label">Jours pour valider</div>
+    </div>
+    <div class="stat-item" style="border-left-color:#4ade80;">
+      <div class="stat-num" style="color:#4ade80;">3</div>
+      <div class="stat-label">Modèles possibles</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHOISIR SON MODELE -->
+<section style="background:#080d08; border-bottom:1px solid rgba(74,222,128,0.1);">
+  <div class="section-label" style="color:#4ade80;">Étape 0 · Avant tout</div>
+  <div class="section-title">Choisir son modèle business</div>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2px; background:rgba(74,222,128,0.07); border:1px solid rgba(74,222,128,0.12);">
+
+    <div style="background:#0c130c; padding:36px 28px; position:relative; overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#4ade80,transparent);"></div>
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#4ade80;opacity:0.7;margin-bottom:14px;">MODÈLE A · RECOMMANDÉ</div>
+      <div style="font-size:26px;margin-bottom:10px;">🏷️</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;margin-bottom:10px;">Print on Demand</div>
+      <div style="font-size:13px;color:rgba(245,240,232,0.55);line-height:1.65;margin-bottom:16px;">Tu vends des produits personnalisés (t-shirts, mugs, affiches) sans stock. Impression & livraison gérées par Printful ou Printify. Risque quasi-zéro.</div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(245,240,232,0.6);"><span style="color:#4ade80;">✓</span> 0€ de stock initial</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(245,240,232,0.6);"><span style="color:#4ade80;">✓</span> Idéal pour commencer</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(245,240,232,0.6);"><span style="color:#f87171;">✗</span> Marges moyennes (20–40%)</div>
+      </div>
+    </div>
+
+    <div style="background:#0c130c; padding:36px 28px; position:relative; overflow:hidden;">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#4ade80;opacity:0.7;margin-bottom:14px;">MODÈLE B · SCALABLE</div>
+      <div style="font-size:26px;margin-bottom:10px;">📦</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;margin-bottom:10px;">Dropshipping Premium</div>
+      <div style="font-size:13px;color:rgba(245,240,232,0.55);line-height:1.65;margin-bottom:16px;">Tu revends des produits de fournisseurs (AliExpress, CJDropshipping) sans stock. Attention : positionne-toi sur des produits à haute valeur perçue, pas du générique.</div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(245,240,232,0.6);"><span style="color:#4ade80;">✓</span> Scalabilité rapide</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(245,240,232,0.6);"><span style="color:#4ade80;">✓</span> Pas de gestion logistique</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(245,240,232,0.6);"><span style="color:#f87171;">✗</span> Compétition élevée</div>
+      </div>
+    </div>
+
+    <div style="background:#0c130c; padding:36px 28px; position:relative; overflow:hidden;">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#4ade80;opacity:0.7;margin-bottom:14px;">MODÈLE C · PREMIUM</div>
+      <div style="font-size:26px;margin-bottom:10px;">🌟</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;margin-bottom:10px;">Marque Propre (DTC)</div>
+      <div style="font-size:13px;color:rgba(245,240,232,0.55);line-height:1.65;margin-bottom:16px;">Tu crées ta propre marque avec des produits sourcés ou fabriqués. Plus d'investissement initial, mais marges x3 et vraie valeur à long terme.</div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(245,240,232,0.6);"><span style="color:#4ade80;">✓</span> Marges 50–70%</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(245,240,232,0.6);"><span style="color:#4ade80;">✓</span> Brand equity réelle</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(245,240,232,0.6);"><span style="color:#f87171;">✗</span> Nécessite 1 000–5 000€</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PHASE 1 : RECHERCHE PRODUIT -->
+<section style="background:#0a0a0a;">
+  <div style="display:inline-flex;align-items:center;gap:12px;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.2);padding:8px 16px;margin-bottom:28px;">
+    <span style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:#4ade80;">PHASE 1</span>
+    <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(245,240,232,0.5);text-transform:uppercase;">Semaine 1–2</span>
+  </div>
+  <div class="section-title">Trouver le bon produit</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+    <div>
+      <p style="font-size:15px;color:rgba(245,240,232,0.6);line-height:1.8;margin-bottom:24px;">
+        90% des échecs en e-commerce viennent d'un mauvais choix de produit. Un bon produit résout un vrai problème, a une forte valeur perçue, et est difficile à trouver en supermarché.
+      </p>
+      <div style="background:#111;border:1px solid rgba(74,222,128,0.15);padding:24px;margin-bottom:16px;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:#4ade80;margin-bottom:12px;">Les 4 critères d'un bon produit</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="font-size:13px;color:rgba(245,240,232,0.65);padding-left:12px;border-left:2px solid #4ade80;">Prix de vente entre <strong style="color:var(--white);">30€ et 150€</strong> — assez pour couvrir tes pubs sans être inaccessible</div>
+          <div style="font-size:13px;color:rgba(245,240,232,0.65);padding-left:12px;border-left:2px solid #4ade80;">Marge brute <strong style="color:var(--white);">supérieure à 50%</strong> — sinon les ads te ruinent</div>
+          <div style="font-size:13px;color:rgba(245,240,232,0.65);padding-left:12px;border-left:2px solid #4ade80;">Produit <strong style="color:var(--white);">"wow factor"</strong> — les gens taguent leurs amis en le voyant</div>
+          <div style="font-size:13px;color:rgba(245,240,232,0.65);padding-left:12px;border-left:2px solid #4ade80;">Petit, léger, <strong style="color:var(--white);">pas fragile</strong> — pour réduire les coûts de livraison et les SAV</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;margin-bottom:16px;color:var(--gold);">Où trouver des idées</div>
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <div style="padding:14px 0;border-bottom:1px solid rgba(245,240,232,0.06);display:flex;gap:14px;align-items:flex-start;">
+          <span style="font-family:'Space Mono',monospace;font-size:10px;color:#4ade80;flex-shrink:0;margin-top:3px;">01</span>
+          <div><strong style="font-size:14px;">TikTok #TikTokMadeMeBuyIt</strong><br><span style="font-size:12px;color:var(--muted);">Les vidéos virales = produits avec "wow factor" prouvé. Cherche ce qui fait des millions de vues.</span></div>
+        </div>
+        <div style="padding:14px 0;border-bottom:1px solid rgba(245,240,232,0.06);display:flex;gap:14px;align-items:flex-start;">
+          <span style="font-family:'Space Mono',monospace;font-size:10px;color:#4ade80;flex-shrink:0;margin-top:3px;">02</span>
+          <div><strong style="font-size:14px;">Minea / AdSpy</strong><br><span style="font-size:12px;color:var(--muted);">Outils qui espionnent les publicités Facebook. Tu vois ce qui tourne en ce moment.</span></div>
+        </div>
+        <div style="padding:14px 0;border-bottom:1px solid rgba(245,240,232,0.06);display:flex;gap:14px;align-items:flex-start;">
+          <span style="font-family:'Space Mono',monospace;font-size:10px;color:#4ade80;flex-shrink:0;margin-top:3px;">03</span>
+          <div><strong style="font-size:14px;">Amazon Best Sellers</strong><br><span style="font-size:12px;color:var(--muted);">Les nouveautés qui montent en classement = demande prouvée. Cherche la version améliorée.</span></div>
+        </div>
+        <div style="padding:14px 0;border-bottom:1px solid rgba(245,240,232,0.06);display:flex;gap:14px;align-items:flex-start;">
+          <span style="font-family:'Space Mono',monospace;font-size:10px;color:#4ade80;flex-shrink:0;margin-top:3px;">04</span>
+          <div><strong style="font-size:14px;">Google Trends</strong><br><span style="font-size:12px;color:var(--muted);">Valide la tendance dans le temps. Évite les produits en phase de déclin.</span></div>
+        </div>
+        <div style="padding:14px 0;display:flex;gap:14px;align-items:flex-start;">
+          <span style="font-family:'Space Mono',monospace;font-size:10px;color:#4ade80;flex-shrink:0;margin-top:3px;">05</span>
+          <div><strong style="font-size:14px;">Reddit / Forums de niche</strong><br><span style="font-size:12px;color:var(--muted);">Lis ce dont les gens se plaignent dans ta niche. Un problème récurrent = une opportunité.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 2 : BOUTIQUE -->
+<section style="background:#0c0c08;border-top:1px solid rgba(200,168,75,0.08);">
+  <div style="display:inline-flex;align-items:center;gap:12px;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.2);padding:8px 16px;margin-bottom:28px;">
+    <span style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:#4ade80;">PHASE 2</span>
+    <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(245,240,232,0.5);text-transform:uppercase;">Semaine 2–3</span>
+  </div>
+  <div class="section-title">Construire sa boutique</div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
+
+    <div style="background:var(--card-bg);border:1px solid rgba(74,222,128,0.12);padding:28px 24px;">
+      <div style="font-size:24px;margin-bottom:12px;">🛒</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;margin-bottom:8px;">La stack technique</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(245,240,232,0.06);">
+          <span style="font-size:13px;">Boutique</span><span style="font-family:'Space Mono',monospace;font-size:11px;color:#4ade80;">Shopify</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(245,240,232,0.06);">
+          <span style="font-size:13px;">Paiement</span><span style="font-family:'Space Mono',monospace;font-size:11px;color:#4ade80;">Stripe + PayPal</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(245,240,232,0.06);">
+          <span style="font-size:13px;">Avis clients</span><span style="font-family:'Space Mono',monospace;font-size:11px;color:#4ade80;">Loox / Judge.me</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(245,240,232,0.06);">
+          <span style="font-size:13px;">Email marketing</span><span style="font-family:'Space Mono',monospace;font-size:11px;color:#4ade80;">Klaviyo</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;">
+          <span style="font-size:13px;">Upsell / Cross-sell</span><span style="font-family:'Space Mono',monospace;font-size:11px;color:#4ade80;">ReConvert</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--card-bg);border:1px solid rgba(74,222,128,0.12);padding:28px 24px;">
+      <div style="font-size:24px;margin-bottom:12px;">📸</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;margin-bottom:8px;">La page produit parfaite</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:14px;">C'est la page qui convertit ou qui tue. Soigne chaque détail :</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:13px;color:rgba(245,240,232,0.7);display:flex;gap:8px;"><span style="color:#4ade80;">→</span> Titre orienté bénéfice, pas feature</div>
+        <div style="font-size:13px;color:rgba(245,240,232,0.7);display:flex;gap:8px;"><span style="color:#4ade80;">→</span> 5–8 photos dont 1 vidéo de démonstration</div>
+        <div style="font-size:13px;color:rgba(245,240,232,0.7);display:flex;gap:8px;"><span style="color:#4ade80;">→</span> Description en bullet points + storytelling</div>
+        <div style="font-size:13px;color:rgba(245,240,232,0.7);display:flex;gap:8px;"><span style="color:#4ade80;">→</span> Badge "Livraison offerte" visible above the fold</div>
+        <div style="font-size:13px;color:rgba(245,240,232,0.7);display:flex;gap:8px;"><span style="color:#4ade80;">→</span> 20+ avis avec photos avant de lancer les pubs</div>
+        <div style="font-size:13px;color:rgba(245,240,232,0.7);display:flex;gap:8px;"><span style="color:#4ade80;">→</span> FAQ pour lever les objections courantes</div>
+        <div style="font-size:13px;color:rgba(245,240,232,0.7);display:flex;gap:8px;"><span style="color:#4ade80;">→</span> Timer de stock ou urgence (si honnête)</div>
+      </div>
+    </div>
+
+    <div style="background:var(--card-bg);border:1px solid rgba(74,222,128,0.12);padding:28px 24px;">
+      <div style="font-size:24px;margin-bottom:12px;">🎨</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;margin-bottom:8px;">L'identité de marque</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:14px;">Même en dropshipping, une vraie marque convertit 2–3x mieux qu'une boutique générique.</div>
+      <div style="background:rgba(74,222,128,0.05);border:1px solid rgba(74,222,128,0.15);padding:16px;margin-top:8px;">
+        <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:#4ade80;margin-bottom:10px;">CHECKLIST MARQUE</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <label style="display:flex;gap:8px;font-size:12px;color:rgba(245,240,232,0.65);cursor:pointer;"><input type="checkbox" style="accent-color:#4ade80;"> Nom de marque mémorable + domaine .com</label>
+          <label style="display:flex;gap:8px;font-size:12px;color:rgba(245,240,232,0.65);cursor:pointer;"><input type="checkbox" style="accent-color:#4ade80;"> Logo propre (Looka ou Canva Pro)</label>
+          <label style="display:flex;gap:8px;font-size:12px;color:rgba(245,240,232,0.65);cursor:pointer;"><input type="checkbox" style="accent-color:#4ade80;"> Palette couleur cohérente (2–3 max)</label>
+          <label style="display:flex;gap:8px;font-size:12px;color:rgba(245,240,232,0.65);cursor:pointer;"><input type="checkbox" style="accent-color:#4ade80;"> Page "Notre histoire" authentique</label>
+          <label style="display:flex;gap:8px;font-size:12px;color:rgba(245,240,232,0.65);cursor:pointer;"><input type="checkbox" style="accent-color:#4ade80;"> Email pro @tondomaine.com</label>
+          <label style="display:flex;gap:8px;font-size:12px;color:rgba(245,240,232,0.65);cursor:pointer;"><input type="checkbox" style="accent-color:#4ade80;"> Politique de retour claire & rassurante</label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PHASE 3 : ACQUISITION -->
+<section style="background:#0a0a0a;">
+  <div style="display:inline-flex;align-items:center;gap:12px;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.2);padding:8px 16px;margin-bottom:28px;">
+    <span style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:#4ade80;">PHASE 3</span>
+    <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(245,240,232,0.5);text-transform:uppercase;">Semaine 3–8</span>
+  </div>
+  <div class="section-title">Attirer les premiers clients</div>
+
+  <!-- CANAL ORGANIQUE VS PAID -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(74,222,128,0.07);border:1px solid rgba(74,222,128,0.12);margin-bottom:32px;">
+
+    <div style="background:#0c130c;padding:36px 28px;">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:#4ade80;margin-bottom:16px;">VOIE A · GRATUIT</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;margin-bottom:14px;">Organique TikTok / Instagram</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:20px;">La voie si tu as peu de budget. Tu publies 2–3 vidéos par jour montrant le produit en situation réelle. Un seul viral peut générer 10 000€ en 48h.</div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="font-size:12px;color:rgba(245,240,232,0.65);display:flex;gap:8px;"><span style="color:#4ade80;">→</span> Format : unboxing, démonstration, avant/après</div>
+        <div style="font-size:12px;color:rgba(245,240,232,0.65);display:flex;gap:8px;"><span style="color:#4ade80;">→</span> Rythme : 2–3 vidéos/jour les 30 premiers jours</div>
+        <div style="font-size:12px;color:rgba(245,240,232,0.65);display:flex;gap:8px;"><span style="color:#4ade80;">→</span> Link in bio → page produit directe</div>
+        <div style="font-size:12px;color:rgba(245,240,232,0.65);display:flex;gap:8px;"><span style="color:#4ade80;">→</span> Hooks forts dans les 2 premières secondes</div>
+      </div>
+    </div>
+
+    <div style="background:#0c130c;padding:36px 28px;">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--gold);margin-bottom:16px;">VOIE B · PAYANT</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;margin-bottom:14px;">Meta Ads (Facebook / Instagram)</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:20px;">La voie scalable. Tu dépenses 20–50€/jour pour tester, tu doubles ce qui convertit. Nécessite un budget test de 300–500€ minimum.</div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="font-size:12px;color:rgba(245,240,232,0.65);display:flex;gap:8px;"><span style="color:var(--gold);">→</span> Structure : 3 adsets × 3 créas = 9 ads en test</div>
+        <div style="font-size:12px;color:rgba(245,240,232,0.65);display:flex;gap:8px;"><span style="color:var(--gold);">→</span> Budget test : 10€/adset/jour pendant 3 jours</div>
+        <div style="font-size:12px;color:rgba(245,240,232,0.65);display:flex;gap:8px;"><span style="color:var(--gold);">→</span> KPI cible : ROAS > 2.5 avant de scaler</div>
+        <div style="font-size:12px;color:rgba(245,240,232,0.65);display:flex;gap:8px;"><span style="color:var(--gold);">→</span> Créa = vidéo UGC style authentique</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- METRIQUES -->
+  <div style="background:var(--card-bg);border:1px solid rgba(200,168,75,0.1);padding:32px;">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;margin-bottom:20px;color:var(--gold);">Les métriques à surveiller chaque jour</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;">
+      <div style="text-align:center;padding:16px;background:rgba(200,168,75,0.05);border:1px solid rgba(200,168,75,0.12);">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold);">CTR</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;">Cible : > 2%</div>
+        <div style="font-size:10px;color:rgba(245,240,232,0.4);margin-top:2px;">Taux de clic sur pub</div>
+      </div>
+      <div style="text-align:center;padding:16px;background:rgba(74,222,128,0.05);border:1px solid rgba(74,222,128,0.12);">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#4ade80;">CVR</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;">Cible : > 2.5%</div>
+        <div style="font-size:10px;color:rgba(245,240,232,0.4);margin-top:2px;">Taux de conversion</div>
+      </div>
+      <div style="text-align:center;padding:16px;background:rgba(200,168,75,0.05);border:1px solid rgba(200,168,75,0.12);">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold);">AOV</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;">Cible : > 55€</div>
+        <div style="font-size:10px;color:rgba(245,240,232,0.4);margin-top:2px;">Panier moyen</div>
+      </div>
+      <div style="text-align:center;padding:16px;background:rgba(74,222,128,0.05);border:1px solid rgba(74,222,128,0.12);">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#4ade80;">ROAS</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;">Cible : > 2.5x</div>
+        <div style="font-size:10px;color:rgba(245,240,232,0.4);margin-top:2px;">Retour sur pub</div>
+      </div>
+      <div style="text-align:center;padding:16px;background:rgba(200,168,75,0.05);border:1px solid rgba(200,168,75,0.12);">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold);">CPA</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;">< 30% du prix</div>
+        <div style="font-size:10px;color:rgba(245,240,232,0.4);margin-top:2px;">Coût par achat</div>
+      </div>
+      <div style="text-align:center;padding:16px;background:rgba(74,222,128,0.05);border:1px solid rgba(74,222,128,0.12);">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#4ade80;">LTV</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;">Maximiser</div>
+        <div style="font-size:10px;color:rgba(245,240,232,0.4);margin-top:2px;">Valeur client vie</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 4 : EMAIL & RETENTION -->
+<section style="background:#0c0c08;border-top:1px solid rgba(200,168,75,0.08);">
+  <div style="display:inline-flex;align-items:center;gap:12px;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.2);padding:8px 16px;margin-bottom:28px;">
+    <span style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:#4ade80;">PHASE 4</span>
+    <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(245,240,232,0.5);text-transform:uppercase;">Mois 2–3</span>
+  </div>
+  <div class="section-title">Email, Rétention & LTV</div>
+
+  <p style="max-width:620px;font-size:15px;color:rgba(245,240,232,0.6);line-height:1.8;margin-bottom:36px;">
+    Acquérir un client coûte 5x plus cher que de le garder. L'email marketing est le canal avec le meilleur ROI (38€ pour 1€ investi). C'est ton actif le plus précieux.
+  </p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;">
+
+    <div style="background:var(--card-bg);border:1px solid rgba(74,222,128,0.1);padding:24px;">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:#4ade80;letter-spacing:2px;margin-bottom:12px;">FLUX 1 · AUTOMATIQUE</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;margin-bottom:8px;">Welcome Series</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:12px;">Séquence de 3 emails envoyée dès l'inscription.</div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="font-size:12px;display:flex;gap:8px;"><span style="color:#4ade80;font-family:'Space Mono',monospace;font-size:10px;">J+0</span> Email de bienvenue + 10% de réduction</div>
+        <div style="font-size:12px;display:flex;gap:8px;"><span style="color:#4ade80;font-family:'Space Mono',monospace;font-size:10px;">J+2</span> Histoire de la marque + produit phare</div>
+        <div style="font-size:12px;display:flex;gap:8px;"><span style="color:#4ade80;font-family:'Space Mono',monospace;font-size:10px;">J+4</span> Urgence finale + preuves sociales</div>
+      </div>
+    </div>
+
+    <div style="background:var(--card-bg);border:1px solid rgba(74,222,128,0.1);padding:24px;">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:#4ade80;letter-spacing:2px;margin-bottom:12px;">FLUX 2 · AUTOMATIQUE</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;margin-bottom:8px;">Panier abandonné</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:12px;">70% des paniers sont abandonnés. Récupère 15–20% d'entre eux.</div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="font-size:12px;display:flex;gap:8px;"><span style="color:#4ade80;font-family:'Space Mono',monospace;font-size:10px;">H+1</span> Rappel simple "Tu as oublié quelque chose"</div>
+        <div style="font-size:12px;display:flex;gap:8px;"><span style="color:#4ade80;font-family:'Space Mono',monospace;font-size:10px;">H+24</span> Preuve sociale + FAQ objections</div>
+        <div style="font-size:12px;display:flex;gap:8px;"><span style="color:#4ade80;font-family:'Space Mono',monospace;font-size:10px;">H+48</span> Offre finale -10% (expire dans 2h)</div>
+      </div>
+    </div>
+
+    <div style="background:var(--card-bg);border:1px solid rgba(74,222,128,0.1);padding:24px;">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:#4ade80;letter-spacing:2px;margin-bottom:12px;">FLUX 3 · AUTOMATIQUE</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;margin-bottom:8px;">Post-achat</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:12px;">Transforme un acheteur en fan et en acheteur répété.</div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="font-size:12px;display:flex;gap:8px;"><span style="color:#4ade80;font-family:'Space Mono',monospace;font-size:10px;">J+1</span> Email de confirmation + unboxing tips</div>
+        <div style="font-size:12px;display:flex;gap:8px;"><span style="color:#4ade80;font-family:'Space Mono',monospace;font-size:10px;">J+7</span> Demande d'avis + photo (récompensée)</div>
+        <div style="font-size:12px;display:flex;gap:8px;"><span style="color:#4ade80;font-family:'Space Mono',monospace;font-size:10px;">J+21</span> Offre produit complémentaire (cross-sell)</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PHASE 5 : SCALE -->
+<section style="background:#0a0a0a;">
+  <div style="display:inline-flex;align-items:center;gap:12px;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.2);padding:8px 16px;margin-bottom:28px;">
+    <span style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:#4ade80;">PHASE 5</span>
+    <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(245,240,232,0.5);text-transform:uppercase;">Mois 3–6</span>
+  </div>
+  <div class="section-title">Passer à l'échelle</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+    <div>
+      <div style="background:rgba(74,222,128,0.05);border:1px solid rgba(74,222,128,0.15);padding:28px;margin-bottom:20px;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#4ade80;margin-bottom:16px;">Les leviers de scale</div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="padding-left:12px;border-left:2px solid #4ade80;">
+            <strong style="font-size:14px;">Augmenter le budget pub progressivement</strong>
+            <div style="font-size:12px;color:var(--muted);margin-top:3px;">+20–30% par jour max pour ne pas casser l'algo. Duplique les adsets winners plutôt que de modifier.</div>
+          </div>
+          <div style="padding-left:12px;border-left:2px solid #4ade80;">
+            <strong style="font-size:14px;">Diversifier les créas</strong>
+            <div style="font-size:12px;color:var(--muted);margin-top:3px;">Une créa se fatigue en 2–3 semaines. Commande des vidéos UGC à des créateurs TikTok (50–200€/vidéo).</div>
+          </div>
+          <div style="padding-left:12px;border-left:2px solid #4ade80;">
+            <strong style="font-size:14px;">Ouvrir Google Shopping</strong>
+            <div style="font-size:12px;color:var(--muted);margin-top:3px;">Complète Meta Ads avec Google Shopping pour capter la demande existante. ROAS souvent meilleur.</div>
+          </div>
+          <div style="padding-left:12px;border-left:2px solid #4ade80;">
+            <strong style="font-size:14px;">Programme d'affiliation / Influenceurs</strong>
+            <div style="font-size:12px;color:var(--muted);margin-top:3px;">Contacte 20 micro-influenceurs (5k–50k abonnés) dans ta niche. Offre commissions ou produits gratuits.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;margin-bottom:20px;color:var(--white);">Les jalons financiers</div>
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <div style="display:flex;align-items:center;gap:20px;padding:16px 0;border-bottom:1px solid rgba(245,240,232,0.06);">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:#4ade80;min-width:80px;">1k€</div>
+          <div>
+            <div style="font-size:13px;font-weight:500;">Mois 1–2</div>
+            <div style="font-size:12px;color:var(--muted);">Validation du produit. Tes 10 premières commandes. Ne scale rien encore.</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:20px;padding:16px 0;border-bottom:1px solid rgba(245,240,232,0.06);">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:#4ade80;min-width:80px;">5k€</div>
+          <div>
+            <div style="font-size:13px;font-weight:500;">Mois 2–3</div>
+            <div style="font-size:12px;color:var(--muted);">Le canal marche. Tu as un ROAS positif. Tu commences à scaler les ads.</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:20px;padding:16px 0;border-bottom:1px solid rgba(245,240,232,0.06);">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--gold);min-width:80px;">10k€</div>
+          <div>
+            <div style="font-size:13px;font-weight:500;">Mois 3–4</div>
+            <div style="font-size:12px;color:var(--muted);">Le cap symbolique. Tu as prouvé que le modèle fonctionne. Embauche un VA ou freelance.</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:20px;padding:16px 0;">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--gold);min-width:80px;">30k€</div>
+          <div>
+            <div style="font-size:13px;font-weight:500;">Mois 5–6</div>
+            <div style="font-size:12px;color:var(--muted);">Tu as diversifié les canaux, automatisé le SAV, et ton équipe fait tourner la machine.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LES ERREURS FATALES -->
+<section style="background:#120808;border-top:2px solid rgba(248,113,113,0.2);">
+  <div class="section-label" style="color:#f87171;">À éviter absolument</div>
+  <div class="section-title">Les 7 erreurs qui tuent les boutiques</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;">
+    <div style="background:rgba(248,113,113,0.04);border:1px solid rgba(248,113,113,0.12);padding:20px 18px;display:flex;gap:14px;align-items:flex-start;">
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:rgba(248,113,113,0.4);">01</span>
+      <div><strong style="font-size:13px;">Scaler sans ROAS positif</strong><br><span style="font-size:12px;color:var(--muted);">Beaucoup brûlent 2 000€ en ads sans avoir validé que ça convertit. Valide d'abord avec 300€.</span></div>
+    </div>
+    <div style="background:rgba(248,113,113,0.04);border:1px solid rgba(248,113,113,0.12);padding:20px 18px;display:flex;gap:14px;align-items:flex-start;">
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:rgba(248,113,113,0.4);">02</span>
+      <div><strong style="font-size:13px;">Choisir un produit passionnel, pas rentable</strong><br><span style="font-size:12px;color:var(--muted);">Aimer son produit ne suffit pas. Le marché décide, pas toi. Les chiffres ne mentent pas.</span></div>
+    </div>
+    <div style="background:rgba(248,113,113,0.04);border:1px solid rgba(248,113,113,0.12);padding:20px 18px;display:flex;gap:14px;align-items:flex-start;">
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:rgba(248,113,113,0.4);">03</span>
+      <div><strong style="font-size:13px;">Négliger le SAV</strong><br><span style="font-size:12px;color:var(--muted);">Un mauvais SAV = des chargebacks, des avis négatifs, et un compte Stripe/Shopify fermé.</span></div>
+    </div>
+    <div style="background:rgba(248,113,113,0.04);border:1px solid rgba(248,113,113,0.12);padding:20px 18px;display:flex;gap:14px;align-items:flex-start;">
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:rgba(248,113,113,0.4);">04</span>
+      <div><strong style="font-size:13px;">Dépendre d'un seul fournisseur</strong><br><span style="font-size:12px;color:var(--muted);">Ton fournisseur peut couler ou augmenter ses tarifs du jour au lendemain. Toujours 2 fournisseurs.</span></div>
+    </div>
+    <div style="background:rgba(248,113,113,0.04);border:1px solid rgba(248,113,113,0.12);padding:20px 18px;display:flex;gap:14px;align-items:flex-start;">
+      <span style="font-family:'Bebas Huge',sans-serif;font-size:22px;color:rgba(248,113,113,0.4);font-family:'Bebas Neue',sans-serif;">05</span>
+      <div><strong style="font-size:13px;">Oublier les taxes et la TVA</strong><br><span style="font-size:12px;color:var(--muted);">Dépasser 10 000€ de CA déclenche des obligations fiscales. Ouvre une structure légale dès 5 000€/mois.</span></div>
+    </div>
+    <div style="background:rgba(248,113,113,0.04);border:1px solid rgba(248,113,113,0.12);padding:20px 18px;display:flex;gap:14px;align-items:flex-start;">
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:rgba(248,113,113,0.4);">06</span>
+      <div><strong style="font-size:13px;">Copier un concurrent à l'identique</strong><br><span style="font-size:12px;color:var(--muted);">S'inspirer oui. Copier non. Si tu vends la même chose avec les mêmes pubs, tu perds à la guerre des prix.</span></div>
+    </div>
+    <div style="background:rgba(248,113,113,0.04);border:1px solid rgba(248,113,113,0.12);padding:20px 18px;display:flex;gap:14px;align-items:flex-start;">
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:rgba(248,113,113,0.4);">07</span>
+      <div><strong style="font-size:13px;">Abandonner trop tôt</strong><br><span style="font-size:12px;color:var(--muted);">La plupart arrêtent à 2 semaines sans résultats. Le e-commerce demande 30–60 jours de tests avant de juger.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Business<span>2026</span></div>
+  <div class="footer-note">Formation conçue par Claude · Anthropic · Mars 2026</div>
+</footer>
+
+</body>
+</html>
